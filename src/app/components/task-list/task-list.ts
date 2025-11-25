@@ -13,7 +13,7 @@ import { AddTask } from '../add-task/add-task';
 })
 export class TaskList implements OnInit {
   tasks$!: Observable<Task[]>;
-  isModalOpen = false;
+  isAddStatusModalOpen = false;
   totalTasksCount$!: Observable<number>;
   constructor(private taskService: TaskService) {}
 
@@ -30,11 +30,11 @@ export class TaskList implements OnInit {
     this.taskService.updateTaskStatus(id, TaskStatus.Completed);
   }
   openModal() {
-    this.isModalOpen = true;
+    this.isAddStatusModalOpen = true;
   }
 
   closeModal() {
-    this.isModalOpen = false;
+    this.isAddStatusModalOpen = false;
   }
   getStatusClasses(status: TaskStatus): string {
     const baseClasses = 'px-2 inline-flex text-xs leading-5 font-semibold rounded-full border';
@@ -48,10 +48,10 @@ export class TaskList implements OnInit {
         return `${baseClasses} bg-indigo-100 text-indigo-500 border-indigo-200`;
     }
   }
-  filterOptions = ['All', 'Pending', 'In progress', 'Completed'];
+  filterStatus = ['All', 'Pending', 'In progress', 'Completed'];
 
   onFilterChange(event: Event) {
-    const selectElement = event.target as HTMLSelectElement;
-    this.taskService.updateFilter(selectElement.value);
+    const htmlEle = event.target as HTMLSelectElement;
+    this.taskService.updateFilter(htmlEle.value);
   }
 }

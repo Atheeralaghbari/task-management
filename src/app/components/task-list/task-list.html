@@ -56,7 +56,7 @@
             (change)="onFilterChange($event)"
             class="block w-full pl-10 pr-10 py-2.5 text-sm bg-white border border-slate-300 rounded-xl text-slate-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 shadow-sm transition-all cursor-pointer hover:border-indigo-300"
           >
-            @for (option of filterOptions; track option) {
+            @for (option of filterStatus; track option) {
             <option [value]="option">{{ option }}</option>
             }
           </select>
@@ -237,7 +237,6 @@
   </div>
 </div>
 
-<!-- Ensure your app-add-task has a backdrop blur! -->
-@if (isModalOpen) {
+@if (isAddStatusModalOpen) {
 <app-add-task (close)="closeModal()"></app-add-task>
 }
