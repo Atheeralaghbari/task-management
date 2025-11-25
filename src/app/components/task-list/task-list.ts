@@ -37,15 +37,15 @@ export class TaskList implements OnInit {
     this.isModalOpen = false;
   }
   getStatusClasses(status: TaskStatus): string {
-    const baseClasses = 'px-2 inline-flex text-xs leading-5 font-semibold rounded-full';
+    const baseClasses = 'px-2 inline-flex text-xs leading-5 font-semibold rounded-full border';
 
     switch (status) {
       case TaskStatus.Completed:
-        return `${baseClasses} bg-green-100 text-green-800`;
+        return `${baseClasses} text-emerald-600 bg-emerald-50   border-emerald-200`;
       case TaskStatus.InProgress:
-        return `${baseClasses} bg-blue-100 text-blue-800`;
-      default:
-        return `${baseClasses} bg-yellow-100 text-yellow-800`;
+        return `${baseClasses} bg-red-50 text-red-400 border-red-200`;
+      default: // Pending
+        return `${baseClasses} bg-indigo-100 text-indigo-500 border-indigo-200`;
     }
   }
   filterOptions = ['All', 'Pending', 'In progress', 'Completed'];

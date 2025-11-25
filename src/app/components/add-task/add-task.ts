@@ -25,6 +25,7 @@ export class AddTask {
   }
 
   onSubmit() {
+    console.log('test==========>');
     if (this.taskForm.valid) {
       this.taskService.addTask(this.taskForm.value);
       this.close.emit();
