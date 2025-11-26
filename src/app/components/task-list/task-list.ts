@@ -50,7 +50,7 @@ export class TaskList implements OnInit {
   }
   filterStatus = ['All', 'Pending', 'In progress', 'Completed'];
 
-  onFilterChange(event: Event) {
+  onStatusChange(event: Event) {
     const htmlEle = event.target as HTMLSelectElement;
     this.taskService.updateTaskFilter(htmlEle.value);
   }
