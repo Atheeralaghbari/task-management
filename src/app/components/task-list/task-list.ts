@@ -52,6 +52,6 @@ export class TaskList implements OnInit {
 
   onFilterChange(event: Event) {
     const htmlEle = event.target as HTMLSelectElement;
-    this.taskService.updateFilter(htmlEle.value);
+    this.taskService.updateTaskFilter(htmlEle.value);
   }
 }
